@@ -1,0 +1,4 @@
+# ruflo scratch state, not part of the site
+.claude-flow/
+# Playwright MCP screenshots and snapshots from local checks
+.playwright-mcp/

@@ -3,86 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>სამედიცინო უჯრა — თქვენი სამედიცინო ინფორმაცია ერთ სივრცეში</title>
+
+    <!--
+        iam.ge landing page.
+
+        One static file served by GitHub Pages. The product itself lives at https://app.iam.ge
+        (AppifySheets/personalized-health). Every call to action here points there; nothing on
+        this page talks to a server.
+
+        Brand: the Latin wordmark "I Am", used quietly. The Georgian copy carries the message:
+        your health information, easy to store, analyze and share, with AI doing the reading.
+        The copy should read like a person explaining it to a friend.
+    -->
+    <title>I Am | თქვენი ჯანმრთელობის ინფორმაცია, მარტივად</title>
+    <meta name="description" content="ატვირთეთ ანალიზები და სამედიცინო დოკუმენტები. I Am წაიკითხავს და ისე დაალაგებს, რომ ადვილად შეადაროთ და ექიმს გაუზიაროთ.">
+    <link rel="canonical" href="https://iam.ge/">
+
+    <!-- Social preview: what a shared link shows in Messenger, Telegram, LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://iam.ge/">
+    <meta property="og:title" content="I Am | თქვენი ჯანმრთელობის ინფორმაცია, მარტივად">
+    <meta property="og:description" content="თქვენი ანალიზები და სამედიცინო დოკუმენტები ერთ ადგილას. შეინახეთ, შეადარეთ, გაუზიარეთ ექიმს.">
+    <meta property="og:locale" content="ka_GE">
+    <meta name="twitter:card" content="summary">
+
+    <!-- Favicon drawn inline so the page stays a single file -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f766e'/%3E%3Cpath d='M6 17h5l2.5-6 4 12 2.5-6H26' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+        // One accent colour, teal, kept calm. The old page mixed blue, purple and green;
+        // this one leans on neutrals and lets the accent mark only the interactive parts.
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['BPG Arial', 'BPG Glaho', 'DejaVu Sans', 'Arial', 'sans-serif'],
-                    },
                     colors: {
-                        brand: {
-                            50:  '#eef7ff',
-                            100: '#d9edff',
-                            200: '#bce0ff',
-                            300: '#8ecdff',
-                            400: '#53b0ff',
-                            500: '#2b8fff',
-                            600: '#1470f5',
-                            700: '#0d5ae1',
-                            800: '#1149b6',
-                            900: '#14408f',
-                            950: '#112957',
+                        accent: {
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            900: '#134e4a',
+                            950: '#042f2e',
                         }
                     }
                 }
             }
         }
     </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { font-family: 'Noto Sans Georgian', sans-serif; }
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&family=Inter:wght@500;600&display=swap" rel="stylesheet">
 
-        /* Smooth scroll */
+    <style>
+        /* Georgian body text; the wordmark alone uses Inter so "I Am" sits evenly */
+        body { font-family: 'Noto Sans Georgian', 'Noto Sans', sans-serif; }
+        .wordmark { font-family: 'Inter', 'Noto Sans Georgian', sans-serif; letter-spacing: -0.02em; }
+
         html { scroll-behavior: smooth; }
 
-        /* Gradient animation for hero */
-        @keyframes gradient-shift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        .animated-gradient {
-            background-size: 200% 200%;
-            animation: gradient-shift 8s ease infinite;
-        }
-
-        /* Subtle float animation for feature cards */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-        }
-        .float-card:hover {
-            animation: float 3s ease-in-out infinite;
+        /* Faint grid behind the hero. Decorative only, so it sits in CSS and not in the markup. */
+        .hero-grid {
+            background-image:
+                linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px);
+            background-size: 48px 48px;
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 30%, transparent 100%);
+            -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 30%, transparent 100%);
         }
     </style>
 </head>
 
-<body class="bg-gray-950 text-gray-100 min-h-screen flex flex-col">
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col antialiased">
 
-    <!-- ═══════════════════════════════════════════════════════════════
-         NAV BAR
-         Minimal top bar with logo/title and CTA button
-    ═══════════════════════════════════════════════════════════════ -->
-    <nav class="sticky top-0 z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800/50">
+    <!-- ─────────────────────────────────────────────────────────────
+         NAV
+         Wordmark on the left, one sign-in button on the right.
+    ───────────────────────────────────────────────────────────── -->
+    <nav class="sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/60">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <!-- Health cross icon -->
-                <div class="w-9 h-9 rounded-lg bg-brand-600 flex items-center justify-center">
-                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+            <a href="/" class="flex items-center gap-3">
+                <!-- Mark: a rounded square with a pulse line, the same drawing as the favicon -->
+                <span class="w-9 h-9 rounded-lg bg-accent-700 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M6 17h5l2.5-6 4 12 2.5-6H26"/>
                     </svg>
-                </div>
-                <span class="text-lg font-semibold tracking-tight">სამედიცინო უჯრა</span>
-            </div>
-            <a href="/home"
-               class="hidden sm:inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium px-5 py-2.5 rounded-lg transition-colors">
+                </span>
+                <span class="wordmark text-xl font-semibold">I Am</span>
+            </a>
+            <a href="https://app.iam.ge"
+               class="inline-flex items-center gap-2 bg-zinc-100 hover:bg-white text-zinc-900 text-sm font-medium px-4 py-2 rounded-lg transition-colors">
                 შესვლა
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                 </svg>
             </a>
@@ -90,187 +105,230 @@
     </nav>
 
 
-    <!-- ═══════════════════════════════════════════════════════════════
-         HERO SECTION
-         Main headline, subtitle, and primary CTA
-    ═══════════════════════════════════════════════════════════════ -->
+    <!-- ─────────────────────────────────────────────────────────────
+         HERO
+         The promise in one line, how it happens in one sentence,
+         then the single action that matters: go to the app.
+    ───────────────────────────────────────────────────────────── -->
     <section class="relative overflow-hidden">
-        <!-- Background gradient blobs -->
-        <div class="absolute inset-0 animated-gradient bg-gradient-to-br from-brand-950/40 via-gray-950 to-purple-950/30 pointer-events-none"></div>
-        <div class="absolute top-20 left-1/4 w-96 h-96 bg-brand-600/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-10 right-1/4 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="hero-grid absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+        <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[48rem] h-[28rem] bg-accent-600/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
 
-        <div class="relative max-w-4xl mx-auto px-6 pt-24 pb-20 text-center">
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-6">
-                თქვენი
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-purple-400">სამედიცინო უჯრა</span>
+        <div class="relative max-w-4xl mx-auto px-6 pt-24 sm:pt-32 pb-20 text-center">
+            <p class="text-sm font-medium text-accent-400 mb-5 tracking-wide">iam.ge</p>
+            <h1 class="text-4xl sm:text-5xl font-bold leading-[1.2] tracking-tight mb-6">
+                თქვენი ჯანმრთელობის ინფორმაცია,
+                <span class="text-accent-300">მარტივად</span>
             </h1>
-            <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-4 leading-relaxed">
-                თქვენი სამედიცინო ისტორია ერთ სივრცეში
+            <p class="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                ატვირთეთ ის, რაც კლინიკიდან წამოიღეთ. დანარჩენს სისტემა გააკეთებს: წაიკითხავს და
+                ისე დაალაგებს, რომ ადვილად შეადაროთ და ექიმსაც გაუზიაროთ.
             </p>
-            <p class="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed">
-                ატვირთეთ სამედიცინო დოკუმენტები — ანალიზები, კვლევები, ცნობები — და მიიღეთ
-                ადვილად გასაანალიზებელი ინფორმაცია. თვალი ადევნეთ
-                ცვლილებებს დროში, თქვენთვის და თქვენი ოჯახის წევრებისთვის.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/home"
-                   class="inline-flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-8 py-4 rounded-xl text-lg transition-all hover:shadow-lg hover:shadow-brand-600/25">
-                    დოკუმენტების ატვირთვა
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M12 4v12m0 0l-4-4m4 4l4-4"/>
-                    </svg>
-                </a>
-                <a href="#features"
-                   class="inline-flex items-center justify-center gap-2 border border-gray-700 hover:border-gray-500 text-gray-300 hover:text-white font-medium px-8 py-4 rounded-xl text-lg transition-colors">
-                    გაიგეთ მეტი
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════════════════════════════
-         FEATURES SECTION
-         Three main value propositions displayed as cards
-    ═══════════════════════════════════════════════════════════════ -->
-    <section id="features" class="py-24 px-6">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-4">რას გთავაზობთ</h2>
-            <p class="text-gray-400 text-center mb-16 max-w-xl mx-auto">
-                პლატფორმა, რომელიც დაგეხმარებათ თქვენი და თქვენი ოჯახის ჯანმრთელობის მართვაში
-            </p>
-
-            <div class="grid md:grid-cols-3 gap-8">
-
-                <!-- Card 1: Structured Storage -->
-                <div class="float-card group bg-gray-900/60 border border-gray-800/60 rounded-2xl p-8 hover:border-brand-600/40 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-xl bg-brand-600/15 flex items-center justify-center mb-6 group-hover:bg-brand-600/25 transition-colors">
-                        <svg class="w-7 h-7 text-brand-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">სტრუქტურირებული შენახვა</h3>
-                    <p class="text-gray-400 leading-relaxed">
-                        ატვირთეთ ანალიზები, კვლევები და სამედიცინო ცნობები. სისტემა ავტომატურად
-                        ამოიცნობს და დაალაგებს ინფორმაციას — აღარ დაგჭირდებათ ქაღალდების ძებნა.
-                    </p>
-                </div>
-
-                <!-- Card 2: Analysis Over Time -->
-                <div class="float-card group bg-gray-900/60 border border-gray-800/60 rounded-2xl p-8 hover:border-purple-600/40 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-xl bg-purple-600/15 flex items-center justify-center mb-6 group-hover:bg-purple-600/25 transition-colors">
-                        <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">ანალიზი დროში</h3>
-                    <p class="text-gray-400 leading-relaxed">
-                        თვალი ადევნეთ თქვენი ჯანმრთელობის მაჩვენებლების ცვლილებებს. ნახეთ ტენდენციები,
-                        შეადარეთ შედეგები და მიიღეთ გასაგები სურათი თქვენი ჯანმრთელობის დინამიკაზე.
-                    </p>
-                </div>
-
-                <!-- Card 3: Family Members -->
-                <div class="float-card group bg-gray-900/60 border border-gray-800/60 rounded-2xl p-8 hover:border-emerald-600/40 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-xl bg-emerald-600/15 flex items-center justify-center mb-6 group-hover:bg-emerald-600/25 transition-colors">
-                        <svg class="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3">ოჯახის წევრები</h3>
-                    <p class="text-gray-400 leading-relaxed">
-                        დაამატეთ ოჯახის წევრები და მართეთ მათი სამედიცინო დოკუმენტაციაც —
-                        მშობლების, შვილების ან სხვა ახლობლების ჯანმრთელობის ისტორია ერთ ადგილას.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════════════════════════════
-         HOW IT WORKS SECTION
-         Simple 3-step process explanation
-    ═══════════════════════════════════════════════════════════════ -->
-    <section class="py-24 px-6 bg-gray-900/30">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-16">როგორ მუშაობს</h2>
-
-            <div class="grid sm:grid-cols-3 gap-12">
-                <!-- Step 1 -->
-                <div class="text-center">
-                    <div class="w-12 h-12 rounded-full bg-brand-600/20 border-2 border-brand-600 flex items-center justify-center mx-auto mb-5 text-brand-400 font-bold text-lg">
-                        1
-                    </div>
-                    <h3 class="font-semibold text-lg mb-2">ატვირთეთ</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        ატვირთეთ თქვენი სამედიცინო დოკუმენტები — PDF, სურათი ან სკანირებული ფაილი.
-                    </p>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="text-center">
-                    <div class="w-12 h-12 rounded-full bg-purple-600/20 border-2 border-purple-600 flex items-center justify-center mx-auto mb-5 text-purple-400 font-bold text-lg">
-                        2
-                    </div>
-                    <h3 class="font-semibold text-lg mb-2">სისტემა აანალიზებს</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        ხელოვნური ინტელექტი ამოიცნობს მონაცემებს და დაალაგებს სტრუქტურირებულად.
-                    </p>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="text-center">
-                    <div class="w-12 h-12 rounded-full bg-emerald-600/20 border-2 border-emerald-600 flex items-center justify-center mx-auto mb-5 text-emerald-400 font-bold text-lg">
-                        3
-                    </div>
-                    <h3 class="font-semibold text-lg mb-2">თვალი ადევნეთ</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        ნახეთ ტრენდები, შეადარეთ შედეგები და გააკონტროლეთ ჯანმრთელობა დროში.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ═══════════════════════════════════════════════════════════════
-         CTA SECTION
-         Final call-to-action before footer
-    ═══════════════════════════════════════════════════════════════ -->
-    <section class="py-24 px-6">
-        <div class="max-w-3xl mx-auto text-center">
-            <div class="bg-gradient-to-br from-brand-950/50 to-purple-950/50 border border-gray-800/60 rounded-3xl p-12 sm:p-16">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-4">მზად ხართ?</h2>
-                <p class="text-gray-400 mb-8 max-w-lg mx-auto leading-relaxed">
-                    დაიწყეთ თქვენი და თქვენი ოჯახის სამედიცინო ინფორმაციის ორგანიზება დღესვე.
-                    რეგისტრაცია უფასოა.
-                </p>
-                <a href="/home"
-                   class="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-10 py-4 rounded-xl text-lg transition-all hover:shadow-lg hover:shadow-brand-600/25">
-                    შესვლა პორტალში
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="https://app.iam.ge"
+                   class="inline-flex items-center justify-center gap-2 bg-accent-600 hover:bg-accent-500 text-white font-semibold px-7 py-3.5 rounded-xl text-base transition-colors">
+                    დაწყება
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                     </svg>
                 </a>
+                <a href="#what"
+                   class="inline-flex items-center justify-center gap-2 border border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-white font-medium px-7 py-3.5 rounded-xl text-base transition-colors">
+                    რა შეუძლია
+                </a>
             </div>
         </div>
     </section>
 
 
-    <!-- ═══════════════════════════════════════════════════════════════
+    <!-- ─────────────────────────────────────────────────────────────
+         THE THREE THINGS
+         Store, analyze, share. These are the pillars the owner named;
+         each card says what the app does for that pillar, nothing more.
+    ───────────────────────────────────────────────────────────── -->
+    <section id="what" class="py-20 sm:py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="max-w-2xl mb-14">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-3">სამი რამ, რაც მარტივი უნდა იყოს</h2>
+                <p class="text-zinc-400 leading-relaxed">
+                    ანალიზის პასუხს ჩვეულებრივ ერთხელ ვუყურებთ და მერე სადღაც იკარგება.
+                    აქ ის რჩება და მაშინ გამოგადგებათ, როცა დაგჭირდებათ.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-5">
+
+                <!-- Store -->
+                <article class="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-7 hover:border-zinc-700 transition-colors">
+                    <div class="w-11 h-11 rounded-lg bg-accent-950 border border-accent-900 flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-accent-300" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5A1.5 1.5 0 014.5 6h5.1a1.5 1.5 0 011.06.44l1.4 1.4a1.5 1.5 0 001.06.44h6.38A1.5 1.5 0 0121 9.78V17.5a1.5 1.5 0 01-1.5 1.5h-15A1.5 1.5 0 013 17.5v-10z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">შენახვა</h3>
+                    <p class="text-zinc-400 leading-relaxed text-[15px]">
+                        ანალიზები, რეცეპტები, კვლევები, ეპიკრიზები, ფორმა 100. ატვირთეთ PDF ან უბრალოდ ფოტო.
+                        სისტემა თვითონ მიხვდება, რა დოკუმენტია, და პაციენტისა და თარიღის მიხედვით დაალაგებს.
+                    </p>
+                </article>
+
+                <!-- Analyze -->
+                <article class="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-7 hover:border-zinc-700 transition-colors">
+                    <div class="w-11 h-11 rounded-lg bg-accent-950 border border-accent-900 flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-accent-300" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 17l5.5-6 4 4L21 6M15 6h6v6"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">ანალიზი</h3>
+                    <p class="text-zinc-400 leading-relaxed text-[15px]">
+                        ანალიზის პასუხებიდან მაჩვენებლები ამოიღება და ერთ გრაფიკზე ლაგდება, ასე რომ ხედავთ,
+                        როგორ იცვლებოდა წლების განმავლობაში. სხვადასხვა ლაბორატორიის ერთეულებსაც სისტემა თვითონ გადაიყვანს.
+                    </p>
+                </article>
+
+                <!-- Share -->
+                <article class="bg-zinc-900/60 border border-zinc-800 rounded-2xl p-7 hover:border-zinc-700 transition-colors">
+                    <div class="w-11 h-11 rounded-lg bg-accent-950 border border-accent-900 flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-accent-300" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 12a3 3 0 11-6 0 3 3 0 016 0zm15-6a3 3 0 11-6 0 3 3 0 016 0zm0 12a3 3 0 11-6 0 3 3 0 016 0zM7.2 10.6l9.6-3.2M7.2 13.4l9.6 3.2"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">გაზიარება</h3>
+                    <p class="text-zinc-400 leading-relaxed text-[15px]">
+                        ექიმთან მისვლისას აღარ დაგჭირდებათ საქაღალდის თრევა. გაუგზავნეთ ბმული და ის ნახავს
+                        მხოლოდ იმას, რაც თქვენ აირჩიეთ. ბმულს როცა გინდათ, მაშინ გააუქმებთ.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────────────────────────
+         AI, QUIETLY
+         The owner wants AI integrated but not shouted. One block that
+         says what the model does and that the person stays in charge.
+    ───────────────────────────────────────────────────────────── -->
+    <section class="py-20 sm:py-24 px-6 bg-zinc-900/40 border-y border-zinc-800/60">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-5 gap-12 items-start">
+            <div class="lg:col-span-2">
+                <p class="text-sm font-medium text-accent-400 mb-3">ხელოვნური ინტელექტი</p>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4">კითხულობს თქვენს მაგივრად</h2>
+                <p class="text-zinc-400 leading-relaxed">
+                    ატვირთულ დოკუმენტს ხელოვნური ინტელექტი ისე კითხულობს, როგორც ადამიანი წაიკითხავდა,
+                    და მნიშვნელოვანს ამოკრებს. შედეგი დოკუმენტის გვერდითვე ჩანს, რომ შეამოწმოთ და,
+                    თუ რამე შეეშალა, შეასწოროთ.
+                </p>
+            </div>
+
+            <ol class="lg:col-span-3 grid sm:grid-cols-3 gap-5">
+                <li class="bg-zinc-950 border border-zinc-800 rounded-xl p-6">
+                    <span class="text-accent-400 text-sm font-semibold">01</span>
+                    <h3 class="font-semibold mt-2 mb-2">ხვდება, რა დოკუმენტია</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">ანალიზის პასუხია, რეცეპტი, კვლევის დასკვნა თუ ეპიკრიზი. თუ ვერ მიხვდა, ამასაც პირდაპირ გეტყვით.</p>
+                </li>
+                <li class="bg-zinc-950 border border-zinc-800 rounded-xl p-6">
+                    <span class="text-accent-400 text-sm font-semibold">02</span>
+                    <h3 class="font-semibold mt-2 mb-2">ამოკრებს მთავარს</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">ვისი დოკუმენტია, როდისაა, რა მაჩვენებლები და ერთეულებია, რა დიაგნოზი და რა წამლებია დანიშნული.</p>
+                </li>
+                <li class="bg-zinc-950 border border-zinc-800 rounded-xl p-6">
+                    <span class="text-accent-400 text-sm font-semibold">03</span>
+                    <h3 class="font-semibold mt-2 mb-2">აკავშირებს წინა შედეგებთან</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">ახალი პასუხი იმავე მაჩვენებლის ძველ შედეგებს მიებმება, ასე რომ ცვლილებას მაშინვე დაინახავთ.</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────────────────────────
+         ALSO
+         Smaller capabilities the app has that do not deserve a card of
+         their own but a visitor would want to know about.
+    ───────────────────────────────────────────────────────────── -->
+    <section class="py-20 sm:py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-10">და კიდევ</h2>
+            <dl class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
+                <div>
+                    <dt class="font-semibold mb-1.5">ოჯახის წევრები</dt>
+                    <dd class="text-zinc-400 text-sm leading-relaxed">მშობლების, შვილების, მეუღლის დოკუმენტებიც ერთ ანგარიშში, ოღონდ თითოეული ცალკე.</dd>
+                </div>
+                <div>
+                    <dt class="font-semibold mb-1.5">შეხსენებები</dt>
+                    <dd class="text-zinc-400 text-sm leading-relaxed">თუ რომელიმე ანალიზი პერიოდულად უნდა გაიმეოროთ, დროზე შეგახსენებთ.</dd>
+                </div>
+                <div>
+                    <dt class="font-semibold mb-1.5">ექიმები და კლინიკები</dt>
+                    <dd class="text-zinc-400 text-sm leading-relaxed">რომელ ექიმთან და რომელ კლინიკაში იყავით, დოკუმენტებიდანვე იკრიბება ერთ სიაში.</dd>
+                </div>
+                <div>
+                    <dt class="font-semibold mb-1.5">ორიგინალი ყოველთვის ხელთ გაქვთ</dt>
+                    <dd class="text-zinc-400 text-sm leading-relaxed">ყოველი რიცხვის გვერდით თავად დოკუმენტიც ჩანს, რომ ნებისმიერ დროს გადაამოწმოთ.</dd>
+                </div>
+            </dl>
+        </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────────────────────────
+         HOW IT WORKS
+         Three steps, because the visitor's only real question at this
+         point is "how much work is this for me".
+    ───────────────────────────────────────────────────────────── -->
+    <section id="how" class="py-20 sm:py-24 px-6 bg-zinc-900/40 border-y border-zinc-800/60">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-14">როგორ მუშაობს</h2>
+            <ol class="grid sm:grid-cols-3 gap-10">
+                <li class="text-center">
+                    <div class="w-11 h-11 rounded-full border border-accent-700 text-accent-300 flex items-center justify-center mx-auto mb-5 font-semibold">1</div>
+                    <h3 class="font-semibold text-lg mb-2">ატვირთეთ</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">PDF, ფოტო ან სკანი. ერთიც შეიძლება და ათიც ერთად, თანმიმდევრობას მნიშვნელობა არ აქვს.</p>
+                </li>
+                <li class="text-center">
+                    <div class="w-11 h-11 rounded-full border border-accent-700 text-accent-300 flex items-center justify-center mx-auto mb-5 font-semibold">2</div>
+                    <h3 class="font-semibold text-lg mb-2">დაადასტურეთ</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">სისტემა გაჩვენებთ, რა წაიკითხა და ვისი დოკუმენტია. თქვენ მხოლოდ ადასტურებთ.</p>
+                </li>
+                <li class="text-center">
+                    <div class="w-11 h-11 rounded-full border border-accent-700 text-accent-300 flex items-center justify-center mx-auto mb-5 font-semibold">3</div>
+                    <h3 class="font-semibold text-lg mb-2">გამოიყენეთ</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">შეადარეთ ძველ შედეგებს, თუ საჭიროა, ექიმსაც გაუზიარეთ. დანარჩენ დროს უბრალოდ იცოდეთ, რომ აქ დევს.</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────────────────────────
+         CLOSING CALL
+    ───────────────────────────────────────────────────────────── -->
+    <section class="py-20 sm:py-28 px-6">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-4">დაიწყეთ ერთი დოკუმენტით</h2>
+            <p class="text-zinc-400 mb-8 leading-relaxed">
+                ატვირთეთ ბოლო ანალიზის პასუხი და ნახეთ, რას ამოიკითხავს სისტემა. რეგისტრაცია უფასოა.
+            </p>
+            <a href="https://app.iam.ge"
+               class="inline-flex items-center gap-2 bg-accent-600 hover:bg-accent-500 text-white font-semibold px-8 py-3.5 rounded-xl text-base transition-colors">
+                შესვლა app.iam.ge-ზე
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────────────────────────
          FOOTER
-    ═══════════════════════════════════════════════════════════════ -->
-    <footer class="mt-auto border-t border-gray-800/50 py-8 px-6">
-        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-            <span>&copy; 2026 სამედიცინო უჯრა</span>
-            <span>თქვენი ჯანმრთელობა — თქვენს ხელში</span>
+    ───────────────────────────────────────────────────────────── -->
+    <footer class="mt-auto border-t border-zinc-800/60 py-8 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-zinc-500">
+            <span><span class="wordmark text-zinc-300 font-semibold">I Am</span> &middot; &copy; 2026</span>
+            <a href="https://app.iam.ge" class="hover:text-zinc-300 transition-colors">app.iam.ge</a>
         </div>
     </footer>
-
 </body>
 </html>
