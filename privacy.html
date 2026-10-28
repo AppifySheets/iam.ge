@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ka" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--
+        iam.ge privacy notice, served by GitHub Pages at https://iam.ge/privacy.
+
+        It is the notice the Law of Georgia on Personal Data Protection asks the controller to give, and the page
+        the Google sign-in consent screen links to as its privacy policy. It covers the whole service: the portal
+        at app.iam.ge, the @iam.ge mail addresses, the back office and the reading of documents.
+
+        Every statement here was checked against AppifySheets/personalized-health (main at f13007a, 2026-10-28).
+        When the service changes what it collects, who it sends data to or how long it keeps it, this page changes
+        with it, and its date moves. If the change touches what people consented to (ConsentText.cs in the portal),
+        the portal asks them again; this page only describes.
+
+        Georgian is the authoritative text. The English below it says the same thing for readers who need it, such
+        as Google's reviewers. Keep the two in step: edit both in the same commit.
+
+        Text in square brackets, like [email], is not decided yet and must be filled in before this is merged.
+    -->
+    <title>I Am | კონფიდენციალურობა</title>
+    <meta name="description" content="როგორ ინახავს და იყენებს iam.ge თქვენს და თქვენი ოჯახის ინფორმაციას.">
+    <link rel="canonical" href="https://iam.ge/privacy">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f766e'/%3E%3Cpath d='M6 17h5l2.5-6 4 12 2.5-6H26' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+    <!-- Same Tailwind setup and fonts as index.html, so the two pages look like one site -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        accent: {
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Noto Sans Georgian', 'Noto Sans', sans-serif; }
+        .wordmark { font-family: 'Inter', 'Noto Sans Georgian', sans-serif; letter-spacing: -0.02em; }
+        html { scroll-behavior: smooth; }
+
+        /* Long-form text. Tailwind's CDN build has no typography plugin, so the notice styles its own
+           headings, paragraphs and lists here instead of repeating utility classes on every element. */
+        .notice h2 { font-size: 1.25rem; font-weight: 600; color: #f4f4f5; margin: 2.75rem 0 0.85rem; scroll-margin-top: 5rem; }
+        .notice h3 { font-size: 1rem; font-weight: 600; color: #e4e4e7; margin: 1.75rem 0 0.6rem; }
+        .notice p, .notice li { color: #a1a1aa; line-height: 1.8; font-size: 15px; }
+        .notice p { margin: 0 0 0.9rem; }
+        .notice ul { margin: 0 0 1rem; padding-left: 1.25rem; list-style: disc; }
+        .notice li { margin: 0.3rem 0; }
+        .notice li::marker { color: #52525b; }
+        .notice strong { color: #e4e4e7; font-weight: 600; }
+        .notice a { color: #5eead4; text-decoration: underline; text-underline-offset: 3px; }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col antialiased">
+
+    <!-- Nav: the same wordmark and sign-in button as the home page -->
+    <nav class="sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/60">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-3">
+                <span class="w-9 h-9 rounded-lg bg-accent-700 flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M6 17h5l2.5-6 4 12 2.5-6H26"/>
+                    </svg>
+                </span>
+                <span class="wordmark text-xl font-semibold">I Am</span>
+            </a>
+            <a href="https://app.iam.ge"
+               class="inline-flex items-center gap-2 bg-zinc-100 hover:bg-white text-zinc-900 text-sm font-medium px-4 py-2 rounded-lg transition-colors">
+                შესვლა
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+    <main class="notice max-w-3xl w-full mx-auto px-4 sm:px-6 py-14 sm:py-20">
+
+        <!-- ═════════════════════════════ GEORGIAN (authoritative) ═════════════════════════════ -->
+        <article id="ka" lang="ka">
+            <p class="text-sm"><a href="#en">English</a></p>
+            <h1 class="text-3xl sm:text-4xl font-bold leading-tight tracking-tight mb-3 text-zinc-100">როგორ ვიყენებთ თქვენს ინფორმაციას</h1>
+            <p class="text-sm">ვერსია: 2026 წლის 28 ოქტომბერი</p>
+
+            <p>ეს შეტყობინება ეხება iam.ge-ს: პორტალს app.iam.ge-ზე, თქვენს @iam.ge ელფოსტის მისამართს და სისტემას, რომელიც თქვენს დოკუმენტებს კითხულობს. ის "პერსონალურ მონაცემთა დაცვის შესახებ" საქართველოს კანონის მიხედვით არის მომზადებული.</p>
+
+            <h2 id="ka-who">ვინ არის პასუხისმგებელი</h2>
+            <p>თქვენს ინფორმაციაზე პასუხისმგებელი (დამმუშავებელი) არის [Health LLC, name pending], [მისამართი], საიდენტიფიკაციო კოდი [კოდი]. ის წყვეტს, რისთვის და როგორ გამოიყენება თქვენი ინფორმაცია.</p>
+            <p>სისტემას მისი დავალებით მართავს AppifySheets (უფლებამოსილი პირი), რომელიც თქვენს ინფორმაციას მხოლოდ დამმუშავებლის მითითებით იყენებს.</p>
+            <p>კითხვებისა და მოთხოვნებისთვის მოგვწერეთ: [email].</p>
+
+            <h2 id="ka-what">რა ინფორმაციას ვინახავთ</h2>
+            <h3>თქვენი ანგარიში</h3>
+            <ul>
+                <li>როცა Google-ით, Microsoft-ით ან Apple-ით შედიხართ: ამ ანგარიშის იდენტიფიკატორს, ელფოსტას, სახელსა და გვარს. საკუთარი პაროლები არ გვაქვს და პაროლს არ ვინახავთ.</li>
+                <li>რეგისტრაციისას: სახელს, გვარს, პირად ნომერს, დაბადების თარიღს და თქვენ მიერ არჩეულ @iam.ge მისამართს. ანგარიშის გახსნა 18 წლიდან შეიძლება.</li>
+                <li>თუ პარამეტრებში მიუთითებთ: მობილურის ნომერს.</li>
+                <li>რომელ თანხმობას დაეთანხმეთ და როდის, და რა თემა აირჩიეთ.</li>
+            </ul>
+            <h3>თქვენი ოჯახი</h3>
+            <p>ოჯახის წევრების (შვილების, მშობლების და სხვების), რომლებსაც ამატებთ: სახელს, გვარს, პირად ნომერს, დაბადების თარიღს და ვინ არის ის თქვენთვის. თუ დოკუმენტში ისეთი ადამიანია, ვინც ჯერ არ გყავთ დამატებული, სისტემა მას თავად დაამატებს დოკუმენტში დაბეჭდილი სახელით, პირადი ნომრითა და დაბადების თარიღით.</p>
+            <p>თუ ზრდასრულ ადამიანს ამატებთ, აცნობეთ მას და მიეცით ეს შეტყობინება წასაკითხად.</p>
+            <h3>დოკუმენტები</h3>
+            <p>ანალიზები, რეცეპტები, კვლევები, ეპიკრიზები და სხვა დოკუმენტები, რომლებსაც ატვირთავთ ან თქვენს @iam.ge მისამართზე გამოგზავნით. მათგან ვკითხულობთ პაციენტის სახელს, პირად ნომერს და დაბადების თარიღს, დოკუმენტის თარიღს, ექიმსა და კლინიკას, დიაგნოზებს, ლაბორატორიული მაჩვენებლების მნიშვნელობებს, ერთეულებსა და ნორმებს. ეს ჯანმრთელობის ინფორმაციაა, რომელიც კანონით განსაკუთრებული კატეგორიის მონაცემია.</p>
+            <h3>წერილები</h3>
+            <p>წერილებს, რომლებიც თქვენს @iam.ge მისამართზე მოდის (გამგზავნი, ტექსტი, მიმაგრებული ფაილები), გამგზავნებს, რომლებიც დაადასტურეთ ან უარყავით, და პასუხებს, რომლებსაც iam.ge-დან უგზავნით.</p>
+            <h3>ტექნიკური ჩანაწერები</h3>
+            <p>როცა პორტალს იყენებთ: IP მისამართს, ბრაუზერის აღწერას, რომელი გვერდი გახსენით და როდის, და რამდენ ხანს იყო ჩანართი ღია. ელფოსტას, სახელს, ტელეფონსა და პირად ნომერს ამ ჩანაწერებში არ ვწერთ.</p>
+
+            <h2 id="ka-why">რისთვის და რის საფუძველზე</h2>
+            <ul>
+                <li>თქვენი და თქვენი ოჯახის დოკუმენტების შესანახად, წასაკითხად და დასალაგებლად. ჯანმრთელობის ინფორმაციას თქვენი თანხმობით ვამუშავებთ, რომელსაც რეგისტრაციისას გვაძლევთ (კანონის მე-5 და მე-6 მუხლები). სხვა ადამიანის დამატებით ადასტურებთ, რომ ამის უფლება გაქვთ: როგორც მშობელს ან კანონიერ წარმომადგენელს, ან მისი ნებართვით.</li>
+                <li>თქვენთან დასაკავშირებლად: ელფოსტით გიგზავნით იმას, რაც თქვენს @iam.ge მისამართზე მოვიდა, და SMS-ით გატყობინებთ, როცა წერილი თქვენს გადაწყვეტილებას ელოდება. 22:00-დან 09:00-მდე SMS-ს არ ვგზავნით.</li>
+                <li>სისტემის დასაცავად და იმის საჩვენებლად, რა მოხდა, თუ შემდეგ კითხვა გაჩნდება: ტექნიკური ჩანაწერები.</li>
+            </ul>
+            <p>თანხმობის გარეშე სერვისს ვერ მოგაწვდით, რადგან მისი საქმე სწორედ ამ ინფორმაციის შენახვა და წაკითხვაა.</p>
+
+            <h2 id="ka-readers">ვინ კითხულობს თქვენს დოკუმენტებს</h2>
+            <ul>
+                <li>PDF-ს, რომელიც ლაბორატორიის სისტემამ შექმნა და რომლის ფორმაც ვიცით, ჩვენივე პროგრამა კითხულობს, ხელოვნური ინტელექტის გარეშე.</li>
+                <li>ფოტოს ან დასკანერებულ დოკუმენტს Google-ის Gemini კითხულობს. მას მთლიან ფაილს ვუგზავნით.</li>
+                <li>PDF-ს ლაბორატორიიდან, რომლის ფორმაც ჯერ არ ვიცით, iam.ge-ს ოპერატორი თავის კომპიუტერზე ხსნის და Anthropic-ის Claude-ის დახმარებით ამ ლაბორატორიისთვის ახალ ფორმას ამზადებს, რომ მისი პასუხები შემდეგ ავტომატურად წავიკითხოთ. ამის შემდეგ ფაილს კომპიუტერიდან ვშლით.</li>
+            </ul>
+            <p>არც Google და არც Anthropic თქვენს დოკუმენტებზე მოდელებს არ ავარჯიშებს. ორივე მიღებულ მონაცემებს თავისი პირობების მიხედვით გარკვეული დროით ინახავს.</p>
+            <p>თუ ამაზე თანხმობა მოგვეცით, მხარდაჭერისა და შემოწმებისთვის ოპერატორს შეუძლია ნახოს თქვენი ანგარიში ისე, როგორც მას თქვენ ხედავთ, ცვლილებების შეტანის გარეშე. ყოველი ასეთი ნახვა ოპერატორის სახელით აღირიცხება. გარდა ამისა, iam.ge-ს მართვის პროგრამაში ყველა ჩანაწერს ხედავენ ის ადამიანები, ვინც სერვისს მართავს.</p>
+
+            <h2 id="ka-recipients">ვის გადაეცემა</h2>
+            <ul>
+                <li>გამგზავნს, მაგალითად ლაბორატორიას, როცა მის წერილს iam.ge-დან პასუხობთ.</li>
+                <li>კომპანიებს, რომლებიც სერვისის მუშაობაში გვეხმარებიან:
+                    <ul>
+                        <li>HostZealot: სერვერი ფრანკფურტში, გერმანია, სადაც მონაცემთა ბაზაა;</li>
+                        <li>iDrive: ფაილებისა და სარეზერვო ასლების საცავი ფრანკფურტში;</li>
+                        <li>Amazon Web Services: ჩვენი წერილების გაგზავნა (Amazon SES, ფრანკფურტი);</li>
+                        <li>Ubill: SMS საქართველოში, თქვენი ნომერი და შეტყობინების ტექსტი;</li>
+                        <li>Google: დოკუმენტების წაკითხვა (Gemini) და შესვლა Google-ით;</li>
+                        <li>Anthropic: დოკუმენტების წაკითხვა (Claude);</li>
+                        <li>Microsoft და Apple: შესვლა მათი ანგარიშით.</li>
+                    </ul>
+                </li>
+                <li>სახელმწიფო ორგანოებს, მხოლოდ მაშინ, როცა კანონი ამას მოითხოვს.</li>
+            </ul>
+            <p>თქვენს ინფორმაციას არ ვყიდით და რეკლამისთვის არ ვიყენებთ.</p>
+
+            <h2 id="ka-abroad">საქართველოს ფარგლებს გარეთ</h2>
+            <p>ჩვენი სერვერი, ფაილები და სარეზერვო ასლები გერმანიაშია, ევროკავშირში. Gemini და Claude დოკუმენტს შეიძლება აშშ-ში ან სხვა ქვეყანაში ამუშავებდნენ. ასეთ გადაცემას კანონის მოთხოვნების დაცვით ვახორციელებთ; შეგიძლიათ გვკითხოთ, რა გარანტიები მოქმედებს.</p>
+
+            <h2 id="ka-google">რას ვიღებთ Google-ისგან</h2>
+            <p>როცა Google-ით შედიხართ, Google გვიგზავნის თქვენი Google ანგარიშის იდენტიფიკატორს, ელფოსტას, სახელსა და გვარს. მათ მხოლოდ თქვენს ამოსაცნობად და სარეგისტრაციო ფორმის შესავსებად ვიყენებთ. Google-ის წვდომის ტოკენებს არ ვინახავთ, თქვენს Google ანგარიშში სხვას არაფერს ვკითხულობთ და ამ ინფორმაციას არავის ვაძლევთ. Microsoft-ით და Apple-ით შესვლისასაც ასევე ვიქცევით.</p>
+
+            <h2 id="ka-retention">რამდენ ხანს ვინახავთ</h2>
+            <ul>
+                <li>ანგარიშს, ოჯახის წევრებს და დოკუმენტებს ვინახავთ, სანამ ანგარიში გაქვთ ან სანამ თავად არ წაშლით.</li>
+                <li>დოკუმენტის წაშლა ნებისმიერ დროს შეგიძლიათ: იშლება თავად ფაილიც და მისგან წაკითხული ინფორმაციაც.</li>
+                <li>ანგარიშის წაშლა პარამეტრებიდან შეგიძლიათ. მაშინვე იშლება ანგარიში, თქვენი და მხოლოდ თქვენ მიერ მართული ოჯახის წევრების ჩანაწერები, მათი დოკუმენტები და წაკითხული ინფორმაცია, წერილები და გამგზავნები. შვილი, რომელსაც მეორე მშობელიც მართავს, მასთან რჩება.</li>
+                <li>ანგარიშის წაშლისას ფაილების საცავიდან (ატვირთული ფაილები და მოსული წერილები) ფაილები ჯერ ავტომატურად არ იშლება. თუ ანგარიში წაშალეთ, მოგვწერეთ და მათაც წავშლით.</li>
+                <li>წერილს, რომელიც თქვენს გადაწყვეტილებას ელოდება, 30 დღე ვინახავთ. უარყოფილი ან ვადაგასული წერილის ფაილი ერთ საათში იშლება; რჩება მხოლოდ ჩანაწერი, რომ წერილი მოვიდა.</li>
+                <li>ჩვენ მიერ გაგზავნილი წერილის ასლს 30 დღე ვინახავთ.</li>
+                <li>ტექნიკურ ჩანაწერებს [period] ვინახავთ, ანგარიშის წაშლის შემდეგაც, რომ საჭიროების შემთხვევაში ვაჩვენოთ, რა მოხდა.</li>
+                <li>სარეზერვო ასლებს 12 თვემდე ვინახავთ. წაშლილი ინფორმაცია ასლში რჩება, სანამ მისი ვადა არ გავა. ამ დროს მას არაფრისთვის ვიყენებთ და აღვადგენთ მხოლოდ მაშინ, თუ მთელი სისტემის აღდგენა დაგვჭირდება.</li>
+            </ul>
+
+            <h2 id="ka-cookies">ქუქიები და ბრაუზერის მეხსიერება</h2>
+            <p>app.iam.ge მხოლოდ იმ ქუქიებს იყენებს, რომლებიც მის მუშაობას სჭირდება: სესიის ქუქის, რომ შესული დარჩეთ (30 დღე, ყოველი ვიზიტისას ახლდება); დროებით ქუქის შესვლის დროს (10 წუთი); ფორმების დაცვის ქუქის; და ქუქის, რომელიც არჩეულ თემას იმახსოვრებს (1 წელი). ბრაუზერის მეხსიერებაში ვინახავთ თქვენს არჩევანს, მაგალითად რომელი ოჯახის წევრია არჩეული და როგორ ჩანს დოკუმენტების სია. ეს თქვენს ბრაუზერში რჩება.</p>
+            <p>app.iam.ge-ზე არ არის ანალიტიკა, რეკლამა ან სხვა კომპანიების სკრიპტები, და შრიფტებიც ჩვენივე სერვერიდან იტვირთება.</p>
+            <p>ეს საიტი (iam.ge) GitHub-ზეა განთავსებული და შრიფტებს Google Fonts-იდან, სტილებს კი cdn.tailwindcss.com-იდან ტვირთავს, ამიტომ ეს სერვისები თქვენს IP მისამართს ხედავენ. iam.ge ქუქიებს არ იყენებს.</p>
+
+            <h2 id="ka-rights">თქვენი უფლებები</h2>
+            <p>შეგიძლიათ მოგვთხოვოთ:</p>
+            <ul>
+                <li>გითხრათ, რა ინფორმაცია გვაქვს თქვენ შესახებ, და მოგცეთ მისი ასლი;</li>
+                <li>შეასწოროთ ის, რაც არასწორი ან არასრულია;</li>
+                <li>შეწყვიტოთ მისი გამოყენება ან წაშალოთ;</li>
+                <li>დაბლოკოთ: შევინახოთ, მაგრამ არ გამოვიყენოთ.</li>
+            </ul>
+            <p>თანხმობის გამოხმობა ნებისმიერ დროს შეგიძლიათ, ანგარიშის წაშლით ან მოგვწერეთ. ეს არ ცვლის იმას, რაც მანამდე კანონიერად გაკეთდა.</p>
+            <p>მოთხოვნისთვის მოგვწერეთ: [email]. შეიძლება ვინაობის დადასტურება გთხოვოთ. 10 სამუშაო დღეში გიპასუხებთ; გამონაკლის შემთხვევაში ეს ვადა კიდევ 10 სამუშაო დღით შეიძლება გაგრძელდეს და მიზეზს გეტყვით.</p>
+            <p>თუ ფიქრობთ, რომ თქვენს ინფორმაციას კანონის დარღვევით ვამუშავებთ, შეგიძლიათ მიმართოთ სახელმწიფო აუდიტის სამსახურს (<a href="https://sao.ge">sao.ge</a>), რომელიც პერსონალურ მონაცემთა დაცვას ზედამხედველობს, ან სასამართლოს.</p>
+
+            <h2 id="ka-changes">ცვლილებები</h2>
+            <p>ამ შეტყობინების ახალ ვერსიას აქ გამოვაქვეყნებთ თარიღთან ერთად. თუ ცვლილება იმას ეხება, რაზეც თანხმობა მოგვეცით, პორტალში ხელახლა გკითხავთ.</p>
+        </article>
+
+        <hr class="my-16 border-zinc-800">
+
+        <!-- ═════════════════════════════ ENGLISH (translation) ═════════════════════════════ -->
+        <article id="en" lang="en">
+            <p class="text-sm"><a href="#ka">ქართული</a></p>
+            <h1 class="text-3xl sm:text-4xl font-bold leading-tight tracking-tight mb-3 text-zinc-100">How we use your information</h1>
+            <p class="text-sm">Version of 28 October 2026. This is a translation; the Georgian text above is the one that applies.</p>
+
+            <p>This notice covers iam.ge: the portal at app.iam.ge, your @iam.ge email address and the system that reads your documents. It is given under the Law of Georgia on Personal Data Protection.</p>
+
+            <h2 id="en-who">Who is responsible</h2>
+            <p>The controller of your information is [Health LLC, name pending], [address], identification code [code]. It decides why and how your information is used.</p>
+            <p>AppifySheets runs the system on its behalf as processor and uses your information only on the controller's instructions.</p>
+            <p>For questions and requests, write to [email].</p>
+
+            <h2 id="en-what">What we keep</h2>
+            <h3>Your account</h3>
+            <ul>
+                <li>When you sign in with Google, Microsoft or Apple: that account's identifier, email address, first name and last name. We have no passwords of our own and store none.</li>
+                <li>At sign-up: your first and last name, personal ID number, date of birth and the @iam.ge address you choose. You must be 18 or older to open an account.</li>
+                <li>If you add it in Settings: your mobile number.</li>
+                <li>Which consent you agreed to and when, and the theme you chose.</li>
+            </ul>
+            <h3>Your household</h3>
+            <p>For family members you add (children, parents and others): first and last name, personal ID number, date of birth and how they are related to you. If a document names someone you have not added yet, the system adds them to your household with the name, personal ID number and date of birth printed on the document.</p>
+            <p>If you add an adult, tell them and give them this notice to read.</p>
+            <h3>Documents</h3>
+            <p>Lab results, prescriptions, imaging reports, discharge summaries and other documents you upload or send to your @iam.ge address. From them we read the patient's name, personal ID number and date of birth, the document's date, the doctor and clinic, diagnoses, and lab values with their units and reference ranges. This is health information, which the law treats as a special category of data.</p>
+            <h3>Mail</h3>
+            <p>Mail that reaches your @iam.ge address (sender, text, attachments), the senders you confirmed or rejected, and the replies you send from iam.ge.</p>
+            <h3>Technical records</h3>
+            <p>When you use the portal: your IP address, your browser's description of itself, which pages you opened and when, and how long a tab stayed open. These records never contain your email address, name, phone number or personal ID number.</p>
+
+            <h2 id="en-why">Why, and on what legal basis</h2>
+            <ul>
+                <li>To store, read and organise your and your family's documents. We process health information with the consent you give at sign-up (Articles 5 and 6 of the Law). By adding someone else you confirm you are entitled to: as their parent or legal representative, or with their permission.</li>
+                <li>To keep in touch with you: we email you what arrives at your @iam.ge address, and send an SMS when a message is waiting for your decision. We send no SMS between 22:00 and 09:00.</li>
+                <li>To keep the system secure and to be able to show what happened if a question comes up later: the technical records.</li>
+            </ul>
+            <p>Without your consent we cannot provide the service, because keeping and reading this information is what it does.</p>
+
+            <h2 id="en-readers">Who reads your documents</h2>
+            <ul>
+                <li>A PDF produced by a lab's own system, in a layout we already know, is read by our own software with no AI.</li>
+                <li>A photo or scan is read by Google's Gemini. We send it the whole file.</li>
+                <li>A PDF from a lab whose layout we do not know yet is opened by an iam.ge operator on their computer, who uses Anthropic's Claude to prepare a layout for that lab so its results can be read automatically from then on. The file is then deleted from that computer.</li>
+            </ul>
+            <p>Neither Google nor Anthropic trains models on your documents. Both keep what they receive for a limited time under their own terms.</p>
+            <p>If you have agreed to it, an operator can view your account the way you see it, for support and checks, without changing anything. Each such view is recorded under the operator's name. Separately, the people who run iam.ge can see every record in its back office.</p>
+
+            <h2 id="en-recipients">Who receives it</h2>
+            <ul>
+                <li>A sender, such as a lab, when you reply to their message from iam.ge.</li>
+                <li>Companies that help run the service:
+                    <ul>
+                        <li>HostZealot: the server in Frankfurt, Germany, that holds the database;</li>
+                        <li>iDrive: storage for files and backups in Frankfurt;</li>
+                        <li>Amazon Web Services: sending our email (Amazon SES, Frankfurt);</li>
+                        <li>Ubill: SMS in Georgia, your number and the message text;</li>
+                        <li>Google: reading documents (Gemini) and sign-in with Google;</li>
+                        <li>Anthropic: reading documents (Claude);</li>
+                        <li>Microsoft and Apple: sign-in with their accounts.</li>
+                    </ul>
+                </li>
+                <li>Public authorities, only when the law requires it.</li>
+            </ul>
+            <p>We do not sell your information or use it for advertising.</p>
+
+            <h2 id="en-abroad">Outside Georgia</h2>
+            <p>Our server, files and backups are in Germany, in the European Union. Gemini and Claude may process a document in the United States or elsewhere. We make these transfers in line with the Law; you can ask us which safeguards apply.</p>
+
+            <h2 id="en-google">What we receive from Google</h2>
+            <p>When you sign in with Google, Google sends us your Google account identifier, email address, first name and last name. We use them only to recognise you and to fill in the sign-up form. We do not store Google's access tokens, we read nothing else from your Google account, and we give this information to no one. Sign-in with Microsoft and Apple works the same way.</p>
+
+            <h2 id="en-retention">How long we keep it</h2>
+            <ul>
+                <li>Your account, household and documents are kept while you have the account, or until you delete them.</li>
+                <li>You can delete a document at any time: the file and everything read from it are deleted.</li>
+                <li>You can delete your account in Settings. The account, the records of you and of household members only you manage, their documents and what was read from them, your mail and your senders are deleted at once. A child that another parent also manages stays with that parent.</li>
+                <li>Deleting an account does not yet delete its files from the file store (uploaded files and received mail) automatically. If you have deleted your account, write to us and we will delete them too.</li>
+                <li>A message waiting for your decision is kept for 30 days. The file of a rejected or expired message is deleted within an hour; only a record that it arrived remains.</li>
+                <li>A copy of each email we send is kept for 30 days.</li>
+                <li>Technical records are kept for [period], also after an account is deleted, so that we can show what happened if needed.</li>
+                <li>Backups are kept for up to 12 months. Deleted information stays in a backup until it expires. Meanwhile it is not used for anything and is restored only if the whole system has to be recovered.</li>
+            </ul>
+
+            <h2 id="en-cookies">Cookies and browser storage</h2>
+            <p>app.iam.ge uses only the cookies it needs to work: a session cookie that keeps you signed in (30 days, renewed on each visit), a short-lived cookie during sign-in (10 minutes), a cookie that protects forms, and one that remembers your theme (1 year). Your browser's storage keeps your choices, such as which family member is selected and how the document list looks. That stays in your browser.</p>
+            <p>app.iam.ge has no analytics, advertising or third-party scripts, and serves its own fonts.</p>
+            <p>This site (iam.ge) is hosted on GitHub and loads fonts from Google Fonts and styles from cdn.tailwindcss.com, so those services see your IP address. iam.ge sets no cookies.</p>
+
+            <h2 id="en-rights">Your rights</h2>
+            <p>You can ask us:</p>
+            <ul>
+                <li>to tell you what information we hold about you, and for a copy;</li>
+                <li>to correct anything wrong or incomplete;</li>
+                <li>to stop using it, or to delete it;</li>
+                <li>to block it: keep it but not use it.</li>
+            </ul>
+            <p>You can withdraw your consent at any time, by deleting your account or by writing to us. That does not affect what was lawfully done before.</p>
+            <p>To make a request, write to [email]. We may ask you to confirm who you are. We answer within 10 working days; in exceptional cases we may extend this by another 10 working days and will tell you why.</p>
+            <p>If you think we handle your information unlawfully, you can complain to the State Audit Office of Georgia (<a href="https://sao.ge">sao.ge</a>), which supervises data protection, or go to court.</p>
+
+            <h2 id="en-changes">Changes</h2>
+            <p>We publish each new version of this notice here with its date. If a change touches what you consented to, the portal asks you again.</p>
+        </article>
+    </main>
+
+    <footer class="mt-auto border-t border-zinc-800/60 py-8 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-zinc-500">
+            <span><span class="wordmark text-zinc-300 font-semibold">I Am</span> &middot; &copy; 2026</span>
+            <span class="flex items-center gap-5">
+                <a href="/privacy" class="text-zinc-300">კონფიდენციალურობა</a>
+                <a href="https://app.iam.ge" class="hover:text-zinc-300 transition-colors">app.iam.ge</a>
+            </span>
+        </div>
+    </footer>
+</body>
+</html>
