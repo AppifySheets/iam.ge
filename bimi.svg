@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny-ps" viewBox="0 0 100 100">
+  <title>iam.ge</title>
+  <!-- The BIMI logo: mail apps that support BIMI show it next to mail from iam.ge (DNS: default._bimi.iam.ge).
+       The same person-with-a-heart drawing as the portal's icon (personalized-health,
+       src/L5.2.Portal.Components/wwwroot/icon.svg), redrawn for BIMI's SVG Tiny PS profile: a square tile with no
+       rounded corners, because each mail app crops the logo to its own circle or rounded square, and the drawing
+       a little smaller than in the icon (scale 2.2 on its 32 grid rather than 2.6), so a circular crop does not
+       cut into the shoulder. -->
+  <rect width="100" height="100" fill="#1a73e8"/>
+  <g transform="translate(13.7 12.6) scale(2.2)">
+    <circle cx="13" cy="9" r="6" fill="#ffffff"/>
+    <path fill="#ffffff" d="M2,29c0-6.6,4.9-12,11-12c1.3,0,2.5,0.2,3.6,0.6C15.6,18.8,15,20.4,15,22.3c0,1.9,0.9,3.6,2.4,5.1L19,29H2z"/>
+    <path fill="#ff8a93" d="M24,31l-5.2-5.1C17.7,24.8,17,23.6,17,22.3c0-1.8,1.4-3.3,3.2-3.3c1.6,0,2.9,1,3.8,2.3c0.9-1.3,2.2-2.3,3.8-2.3c1.8,0,3.2,1.5,3.2,3.3c0,1.3-0.7,2.5-1.8,3.6L24,31z"/>
+  </g>
+</svg>
