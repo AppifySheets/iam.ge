@@ -1,0 +1,16 @@
+<!-- The iam.ge icon: a person with a heart, white and pink on a bright blue tile. Chosen on 2026-10-28.
+     The drawing is the back office's Patient navigation glyph (L4.0.XAF.Common.Module/Images/Iam_Patient.svg), so the
+     icon in the tab and the Patients entry in the back office's navigation are the same picture. The heart is pink
+     rather than the glyph's red because red does not stand out on blue.
+     This file is the master, and both hosts carry it: the portal's App.razor and the back office's _Host.cshtml inline
+     the same drawing as their favicon, the PNGs beside this file are renders of it, and so is the back office's
+     wwwroot/favicon.ico. Change them all together. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="22" fill="#1a73e8"/>
+  <!-- The glyph is drawn on a 32 grid; scaled by 2.6 and moved by (7 6) its ink is centred on the tile. -->
+  <g transform="translate(7 6) scale(2.6)">
+    <circle cx="13" cy="9" r="6" fill="#ffffff"/>
+    <path fill="#ffffff" d="M2,29c0-6.6,4.9-12,11-12c1.3,0,2.5,0.2,3.6,0.6C15.6,18.8,15,20.4,15,22.3c0,1.9,0.9,3.6,2.4,5.1L19,29H2z"/>
+    <path fill="#ff8a93" d="M24,31l-5.2-5.1C17.7,24.8,17,23.6,17,22.3c0-1.8,1.4-3.3,3.2-3.3c1.6,0,2.9,1,3.8,2.3c0.9-1.3,2.2-2.3,3.8-2.3c1.8,0,3.2,1.5,3.2,3.3c0,1.3-0.7,2.5-1.8,3.6L24,31z"/>
+  </g>
+</svg>

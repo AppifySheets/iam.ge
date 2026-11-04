@@ -12,10 +12,10 @@
         this page talks to a server.
 
         Brand: the Latin wordmark "I Am", used quietly. The Georgian copy carries the message:
-        your health information, easy to store, analyze and share, with AI doing the reading.
-        The copy should read like a person explaining it to a friend.
+        a place for medical documents, built for patients first. Plain headings, no slogans;
+        the copy should read like a person explaining it to a friend.
     -->
-    <title>I Am | თქვენი ჯანმრთელობის ინფორმაცია, მარტივად</title>
+    <title>I Am | ადგილი სამედიცინო დოკუმენტებისთვის</title>
     <meta name="description" content="ატვირთეთ ანალიზები და სამედიცინო დოკუმენტები. I Am წაიკითხავს და ისე დაალაგებს, რომ ადვილად შეადაროთ და ექიმს გაუზიაროთ.">
     <link rel="canonical" href="https://iam.ge/">
 
@@ -27,26 +27,30 @@
     <meta property="og:locale" content="ka_GE">
     <meta name="twitter:card" content="summary">
 
-    <!-- Favicon drawn inline so the page stays a single file -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f766e'/%3E%3Cpath d='M6 17h5l2.5-6 4 12 2.5-6H26' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <!-- The portal's icon (personalized-health, L5.2.Portal.Components/wwwroot): a person with a pink heart
+         on a blue tile. icon.svg is the master; the PNGs are its renders for home screens. Same files as the
+         portal, so the tab and the home-screen tile look the same on both hosts. -->
+    <link rel="icon" type="image/svg+xml" href="/icon.svg">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // One accent colour, teal, kept calm. The old page mixed blue, purple and green;
-        // this one leans on neutrals and lets the accent mark only the interactive parts.
+        // One accent colour: the blue the portal uses (DevExpress Fluent, blue accent, dxds-primary-70/80/90),
+        // so a button here and a button in the portal are the same colour. Neutrals stay the page's own greys.
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
                         accent: {
-                            300: '#5eead4',
-                            400: '#2dd4bf',
-                            500: '#14b8a6',
-                            600: '#0d9488',
-                            700: '#0f766e',
-                            900: '#134e4a',
-                            950: '#042f2e',
+                            300: '#7ab2f0',
+                            400: '#3c92e9',
+                            500: '#1582e1',
+                            600: '#0f6cbd',
+                            700: '#0d64b0',
+                            900: '#064982',
+                            950: '#032e56',
                         }
                     }
                 }
@@ -87,11 +91,7 @@
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="/" class="flex items-center gap-3">
                 <!-- Mark: a rounded square with a pulse line, the same drawing as the favicon -->
-                <span class="w-9 h-9 rounded-lg bg-accent-700 flex items-center justify-center">
-                    <svg class="w-5 h-5 text-white" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M6 17h5l2.5-6 4 12 2.5-6H26"/>
-                    </svg>
-                </span>
+                <span class="w-9 h-9 rounded-lg overflow-hidden"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="#1a73e8"/><g transform="translate(7 6) scale(2.6)"><circle cx="13" cy="9" r="6" fill="#ffffff"/><path fill="#ffffff" d="M2,29c0-6.6,4.9-12,11-12c1.3,0,2.5,0.2,3.6,0.6C15.6,18.8,15,20.4,15,22.3c0,1.9,0.9,3.6,2.4,5.1L19,29H2z"/><path fill="#ff8a93" d="M24,31l-5.2-5.1C17.7,24.8,17,23.6,17,22.3c0-1.8,1.4-3.3,3.2-3.3c1.6,0,2.9,1,3.8,2.3c0.9-1.3,2.2-2.3,3.8-2.3c1.8,0,3.2,1.5,3.2,3.3c0,1.3-0.7,2.5-1.8,3.6L24,31z"/></g></svg></span>
                 <span class="wordmark text-xl font-semibold">I Am</span>
             </a>
             <a href="https://app.iam.ge"
@@ -115,15 +115,13 @@
         <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[48rem] h-[28rem] bg-accent-600/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
 
         <div class="relative max-w-4xl mx-auto px-6 pt-24 sm:pt-32 pb-20 text-center">
-            <!-- The one promise the owner wants seen first: free for patients, and staying that way -->
-            <p class="text-sm font-medium text-accent-400 mb-5 tracking-wide">პაციენტებისთვის ყოველთვის უფასო</p>
             <h1 class="text-4xl sm:text-5xl font-bold leading-[1.2] tracking-tight mb-6">
-                თქვენი ჯანმრთელობის ინფორმაცია,
-                <span class="text-accent-300">მარტივად</span>
+                ადგილი თქვენი
+                <span class="text-accent-300">სამედიცინო დოკუმენტებისთვის</span>
             </h1>
             <p class="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                ატვირთეთ ის, რაც კლინიკიდან წამოიღეთ. დანარჩენს სისტემა გააკეთებს: წაიკითხავს და
-                ისე დაალაგებს, რომ ადვილად შეადაროთ და ექიმსაც გაუზიაროთ.
+                შექმნილია პირველ რიგში პაციენტებისთვის. ატვირთეთ ან გამოგზავნეთ თქვენს @iam.ge
+                მისამართზე ის, რაც კლინიკიდან წამოიღეთ. iam.ge წაიკითხავს, დაალაგებს და დროში გაჩვენებთ.
             </p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
                 <a href="https://app.iam.ge"
@@ -143,6 +141,25 @@
 
 
     <!-- ─────────────────────────────────────────────────────────────
+         FREE, SAID OUT LOUD
+         Free for patients and doctors. If it ever earns, only from
+         transactions performed through the portal. A full-width band
+         in the accent colour so nobody scrolls past it.
+    ───────────────────────────────────────────────────────────── -->
+    <section class="px-6 pb-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="max-w-2xl">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-3">უფასოა პაციენტებისთვისაც და ექიმებისთვისაც</h2>
+                <p class="text-zinc-400 leading-relaxed">
+                    თუ iam.ge-ს ოდესმე შემოსავალი ექნება, ის მხოლოდ იმ ტრანზაქციებიდან მოვა,
+                    რომლებიც თავად პორტალზე შესრულდება.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────────────────────────
          THE THREE THINGS
          Store, analyze, share. These are the pillars the owner named;
          each card says what the app does for that pillar, nothing more.
@@ -150,7 +167,7 @@
     <section id="what" class="py-20 sm:py-24 px-6">
         <div class="max-w-6xl mx-auto">
             <div class="max-w-2xl mb-14">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-3">სამი რამ, რაც მარტივი უნდა იყოს</h2>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-3">რას აკეთებს iam.ge</h2>
                 <!-- The problem statement, word for word as the welcome mail says it (MailText.WelcomeProblem
                      in personalized-health), so the site and the mail agree. -->
                 <p class="text-zinc-400 leading-relaxed">
@@ -245,11 +262,11 @@
                         </li>
                         <li class="flex gap-3">
                             <svg class="w-5 h-5 shrink-0 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                            ძველ დოკუმენტებს თქვენ თვითონ გადაუგზავნით
+                            ძველ დოკუმენტებს თქვენ თვითონ გადაიგზავნით
                         </li>
                         <li class="flex gap-3">
                             <svg class="w-5 h-5 shrink-0 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                            რამდენიმე წუთში უკვე წაკითხულია
+                            რამდენიმე წუთში თქვენი დოკუმენტები გაანალიზდება
                         </li>
                     </ul>
                 </div>
@@ -267,7 +284,7 @@
         <div class="max-w-6xl mx-auto grid lg:grid-cols-5 gap-12 items-start">
             <div class="lg:col-span-2">
                 <p class="text-sm font-medium text-accent-400 mb-3">ხელოვნური ინტელექტი</p>
-                <h2 class="text-2xl sm:text-3xl font-bold mb-4">კითხულობს თქვენს მაგივრად</h2>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4">დოკუმენტს სისტემა თვითონ კითხულობს</h2>
                 <p class="text-zinc-400 leading-relaxed">
                     ატვირთულ დოკუმენტს ხელოვნური ინტელექტი ისე კითხულობს, როგორც ადამიანი წაიკითხავდა,
                     და მნიშვნელოვანს ამოკრებს. შედეგი დოკუმენტის გვერდითვე ჩანს, რომ შეამოწმოთ და,
@@ -303,7 +320,7 @@
     ───────────────────────────────────────────────────────────── -->
     <section class="py-20 sm:py-24 px-6">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-10">და კიდევ</h2>
+            <h2 class="text-2xl sm:text-3xl font-bold mb-10">სხვა შესაძლებლობები</h2>
             <dl class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
                 <div>
                     <dt class="font-semibold mb-1.5">ოჯახის წევრები</dt>
@@ -320,7 +337,7 @@
                     <dd class="text-zinc-400 text-sm leading-relaxed">რომელ ექიმთან და რომელ კლინიკაში იყავით, დოკუმენტებიდანვე იკრიბება ერთ სიაში.</dd>
                 </div>
                 <div>
-                    <dt class="font-semibold mb-1.5">ორიგინალი ყოველთვის ხელთ გაქვთ</dt>
+                    <dt class="font-semibold mb-1.5">ორიგინალი დოკუმენტი</dt>
                     <dd class="text-zinc-400 text-sm leading-relaxed">ყოველი რიცხვის გვერდით თავად დოკუმენტიც ჩანს, რომ ნებისმიერ დროს გადაამოწმოთ.</dd>
                 </div>
             </dl>
@@ -357,31 +374,13 @@
     </section>
 
 
-    <!-- ─────────────────────────────────────────────────────────────
-         FREE, AND HOW THE PLATFORM EARNS
-         Two statements the owner wants on record: patients never pay,
-         and revenue comes only from transactions made on the platform.
-         Kept to one short card so it reads as a principle, not a pitch.
-    ───────────────────────────────────────────────────────────── -->
-    <section class="py-20 sm:py-24 px-6">
-        <div class="max-w-2xl mx-auto bg-zinc-900/60 border border-zinc-800 rounded-2xl p-8 sm:p-10">
-            <p class="text-sm font-medium text-accent-400 mb-3">ფასი</p>
-            <h2 class="text-2xl sm:text-3xl font-bold mb-4">პაციენტისთვის უფასოა და ასეც დარჩება</h2>
-            <p class="text-zinc-400 leading-relaxed">
-                ჯანმრთელობის ისტორიის შენახვა, ანალიზი და ექიმისთვის გაზიარება პაციენტისთვის
-                ფასიანი არასდროს გახდება. პლატფორმა შემოსავალს მხოლოდ იმ ტრანზაქციებიდან იღებს,
-                რომლებიც თავად პლატფორმაზე ხდება.
-            </p>
-        </div>
-    </section>
-
 
     <!-- ─────────────────────────────────────────────────────────────
          CLOSING CALL
     ───────────────────────────────────────────────────────────── -->
     <section class="py-20 sm:py-28 px-6">
         <div class="max-w-2xl mx-auto text-center">
-            <h2 class="text-2xl sm:text-3xl font-bold mb-4">დაიწყეთ ერთი დოკუმენტით</h2>
+            <h2 class="text-2xl sm:text-3xl font-bold mb-4">დაიწყეთ</h2>
             <p class="text-zinc-400 mb-8 leading-relaxed">
                 ატვირთეთ ბოლო ანალიზის პასუხი და ნახეთ, რას ამოიკითხავს სისტემა.
             </p>
