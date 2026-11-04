@@ -151,9 +151,13 @@
         <div class="max-w-6xl mx-auto">
             <div class="max-w-2xl mb-14">
                 <h2 class="text-2xl sm:text-3xl font-bold mb-3">სამი რამ, რაც მარტივი უნდა იყოს</h2>
+                <!-- The problem statement, word for word as the welcome mail says it (MailText.WelcomeProblem
+                     in personalized-health), so the site and the mail agree. -->
                 <p class="text-zinc-400 leading-relaxed">
-                    ანალიზის პასუხს ჩვეულებრივ ერთხელ ვუყურებთ და მერე სადღაც იკარგება.
-                    აქ ის რჩება და მაშინ გამოგადგებათ, როცა დაგჭირდებათ.
+                    სამედიცინო დოკუმენტები, ჩვეულებრივ, სამედიცინო დაწესებულების საიტებზე, ელფოსტაში,
+                    PDF-ებსა და ქაღალდზეა გაფანტული. სამედიცინო ისტორიის ერთიანად ნახვა ძნელია, ექიმთან
+                    მისვლისას კი ყველაფერი ხელით უნდა მოაგროვოთ. iam.ge ყველა დოკუმენტს ერთ ადგილას
+                    ინახავს, კითხულობს და დროში გაჩვენებთ.
                 </p>
             </div>
 
@@ -200,6 +204,55 @@
                         მხოლოდ იმას, რაც თქვენ აირჩიეთ. ბმულს როცა გინდათ, მაშინ გააუქმებთ.
                     </p>
                 </article>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ─────────────────────────────────────────────────────────────
+         YOUR @iam.ge ADDRESS
+         Every account gets its own address, <name>@iam.ge. Labs can send
+         results straight to it and the person can forward old papers to
+         it, so this is the core of the product and gets its own block.
+         The body text is the welcome mail's (MailText.WelcomeHowTo in
+         personalized-health) with "ამ მისამართზე" turned into "თქვენს
+         პირად @iam.ge მისამართზე", because a visitor has no address yet.
+    ───────────────────────────────────────────────────────────── -->
+    <section class="py-20 sm:py-24 px-6 bg-zinc-900/40 border-y border-zinc-800/60">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-5 gap-12 items-center">
+            <div class="lg:col-span-3">
+                <p class="text-sm font-medium text-accent-400 mb-3">თქვენი მისამართი</p>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-4">ყველა ანგარიშს თავისი @iam.ge მისამართი აქვს</h2>
+                <p class="text-zinc-400 leading-relaxed">
+                    გადაგზავნეთ თქვენს პირად @iam.ge მისამართზე ძველი ანალიზები, დასკვნები და სხვა
+                    სამედიცინო დოკუმენტები, ან მიუთითეთ ლაბორატორიაში, რომ პასუხი პირდაპირ აქ
+                    გამოგზავნონ. დოკუმენტი და მისი მაჩვენებლები რამდენიმე წუთში გამოჩნდება ანალიზების
+                    გვერდზე. ერთი და იგივე დოკუმენტი ორჯერ რომ გამოგზავნოთ, მეორედ აღარ დაემატება.
+                </p>
+            </div>
+
+            <!-- A picture of the address itself, so the idea lands before the paragraph is read -->
+            <div class="lg:col-span-2">
+                <div class="bg-zinc-950 border border-zinc-800 rounded-2xl p-6 sm:p-8">
+                    <p class="text-xs font-medium text-zinc-500 mb-3">მაგალითად</p>
+                    <p class="wordmark text-xl sm:text-2xl font-semibold text-zinc-100 break-all">
+                        <span class="text-zinc-500">სახელი</span>@iam.ge
+                    </p>
+                    <ul class="mt-6 space-y-3 text-sm text-zinc-400">
+                        <li class="flex gap-3">
+                            <svg class="w-5 h-5 shrink-0 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            ლაბორატორია პასუხს პირდაპირ აქ აგზავნის
+                        </li>
+                        <li class="flex gap-3">
+                            <svg class="w-5 h-5 shrink-0 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            ძველ დოკუმენტებს თქვენ თვითონ გადაუგზავნით
+                        </li>
+                        <li class="flex gap-3">
+                            <svg class="w-5 h-5 shrink-0 text-accent-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            რამდენიმე წუთში უკვე წაკითხულია
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -254,7 +307,9 @@
             <dl class="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
                 <div>
                     <dt class="font-semibold mb-1.5">ოჯახის წევრები</dt>
-                    <dd class="text-zinc-400 text-sm leading-relaxed">მშობლების, შვილების, მეუღლის დოკუმენტებიც ერთ ანგარიშში, ოღონდ თითოეული ცალკე.</dd>
+                    <!-- Second and third sentences are the welcome mail's (MailText.WelcomeFamily), with "აქ"
+                         made explicit as the address, since this item sits far from the address block. -->
+                    <dd class="text-zinc-400 text-sm leading-relaxed">მშობლების, შვილების, მეუღლის დოკუმენტებიც ერთ ანგარიშში, ოღონდ თითოეული ცალკე. ოჯახის წევრების დოკუმენტებიც იმავე @iam.ge მისამართზე გამოგზავნეთ. iam.ge თითოეულ დოკუმენტზე ამოიცნობს, ვისია, და თქვენი ოჯახის წევრებს ავტომატურად დაამატებს.</dd>
                 </div>
                 <div>
                     <dt class="font-semibold mb-1.5">შეხსენებები</dt>
@@ -284,8 +339,8 @@
             <ol class="grid sm:grid-cols-3 gap-10">
                 <li class="text-center">
                     <div class="w-11 h-11 rounded-full border border-accent-700 text-accent-300 flex items-center justify-center mx-auto mb-5 font-semibold">1</div>
-                    <h3 class="font-semibold text-lg mb-2">ატვირთეთ</h3>
-                    <p class="text-zinc-400 text-sm leading-relaxed">PDF, ფოტო ან სკანი. ერთიც შეიძლება და ათიც ერთად, თანმიმდევრობას მნიშვნელობა არ აქვს.</p>
+                    <h3 class="font-semibold text-lg mb-2">ატვირთეთ ან გამოგზავნეთ</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">PDF, ფოტო ან სკანი: ატვირთეთ საიტზე ან გამოგზავნეთ თქვენს @iam.ge მისამართზე. ერთიც შეიძლება და ათიც ერთად, თანმიმდევრობას მნიშვნელობა არ აქვს.</p>
                 </li>
                 <li class="text-center">
                     <div class="w-11 h-11 rounded-full border border-accent-700 text-accent-300 flex items-center justify-center mx-auto mb-5 font-semibold">2</div>
