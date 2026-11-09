@@ -7,9 +7,16 @@
     <!--
         iam.ge landing page.
 
-        One static file served by GitHub Pages. The product itself lives at https://app.iam.ge
+        Static files served by GitHub Pages. The product itself lives at https://app.iam.ge
         (AppifySheets/personalized-health). Every call to action here points there; nothing on
         this page talks to a server.
+
+        Two languages, two files with the same structure: this one (Georgian, the default at /)
+        and en/index.html (English, at /en/). A change to one section belongs in both files.
+
+        The language travels with the visitor: every app link goes through the portal's
+        language endpoint, https://app.iam.ge/language/ka?back=%2F here and /language/en on
+        the English page, which sets the portal's iam-lang cookie and redirects to the app.
 
         Brand: the Latin wordmark "I Am", used quietly. The Georgian copy carries the message:
         a place for medical documents, built for patients first. Plain headings, no slogans;
@@ -18,11 +25,14 @@
     <title>I Am | ადგილი სამედიცინო დოკუმენტებისთვის</title>
     <meta name="description" content="ატვირთეთ ანალიზები და სამედიცინო დოკუმენტები. I Am წაიკითხავს და ისე დაალაგებს, რომ ადვილად შეადაროთ და ექიმს გაუზიაროთ.">
     <link rel="canonical" href="https://iam.ge/">
+    <link rel="alternate" hreflang="ka" href="https://iam.ge/">
+    <link rel="alternate" hreflang="en" href="https://iam.ge/en/">
+    <link rel="alternate" hreflang="x-default" href="https://iam.ge/">
 
     <!-- Social preview: what a shared link shows in Messenger, Telegram, LinkedIn -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://iam.ge/">
-    <meta property="og:title" content="I Am | თქვენი ჯანმრთელობის ინფორმაცია, მარტივად">
+    <meta property="og:title" content="I Am | ადგილი სამედიცინო დოკუმენტებისთვის">
     <meta property="og:description" content="თქვენი ანალიზები და სამედიცინო დოკუმენტები ერთ ადგილას. შეინახეთ, შეადარეთ, გაუზიარეთ ექიმს.">
     <meta property="og:locale" content="ka_GE">
     <meta name="twitter:card" content="summary">
@@ -85,22 +95,27 @@
 
     <!-- ─────────────────────────────────────────────────────────────
          NAV
-         Wordmark on the left, one sign-in button on the right.
+         Wordmark on the left; the other language and the sign-in
+         button on the right.
     ───────────────────────────────────────────────────────────── -->
     <nav class="sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/60">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="/" class="flex items-center gap-3">
-                <!-- Mark: a rounded square with a pulse line, the same drawing as the favicon -->
+                <!-- Mark: the portal's icon, the same drawing as the favicon -->
                 <span class="w-9 h-9 rounded-lg overflow-hidden"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="22" fill="#1a73e8"/><g transform="translate(7 6) scale(2.6)"><circle cx="13" cy="9" r="6" fill="#ffffff"/><path fill="#ffffff" d="M2,29c0-6.6,4.9-12,11-12c1.3,0,2.5,0.2,3.6,0.6C15.6,18.8,15,20.4,15,22.3c0,1.9,0.9,3.6,2.4,5.1L19,29H2z"/><path fill="#ff8a93" d="M24,31l-5.2-5.1C17.7,24.8,17,23.6,17,22.3c0-1.8,1.4-3.3,3.2-3.3c1.6,0,2.9,1,3.8,2.3c0.9-1.3,2.2-2.3,3.8-2.3c1.8,0,3.2,1.5,3.2,3.3c0,1.3-0.7,2.5-1.8,3.6L24,31z"/></g></svg></span>
                 <span class="wordmark text-xl font-semibold">I Am</span>
             </a>
-            <a href="https://app.iam.ge"
-               class="inline-flex items-center gap-2 bg-zinc-100 hover:bg-white text-zinc-900 text-sm font-medium px-4 py-2 rounded-lg transition-colors">
-                შესვლა
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                </svg>
-            </a>
+            <div class="flex items-center gap-5">
+                <!-- The same page in English; the app link over there carries English into the portal -->
+                <a href="/en/" lang="en" hreflang="en" class="text-sm text-zinc-400 hover:text-white transition-colors">English</a>
+                <a href="https://app.iam.ge/language/ka?back=%2F"
+                   class="inline-flex items-center gap-2 bg-zinc-100 hover:bg-white text-zinc-900 text-sm font-medium px-4 py-2 rounded-lg transition-colors">
+                        შესვლა
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -124,7 +139,7 @@
                 მისამართზე ის, რაც კლინიკიდან წამოიღეთ. iam.ge წაიკითხავს, დაალაგებს და დროში გაჩვენებთ.
             </p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="https://app.iam.ge"
+                <a href="https://app.iam.ge/language/ka?back=%2F"
                    class="inline-flex items-center justify-center gap-2 bg-accent-600 hover:bg-accent-500 text-white font-semibold px-7 py-3.5 rounded-xl text-base transition-colors">
                     დაწყება
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
@@ -141,10 +156,10 @@
 
 
     <!-- ─────────────────────────────────────────────────────────────
-         FREE, SAID OUT LOUD
+         FREE
          Free for patients and doctors. If it ever earns, only from
-         transactions performed through the portal. A full-width band
-         in the accent colour so nobody scrolls past it.
+         transactions performed through the portal. Said plainly, a
+         heading and one sentence, nothing flashy (Petre, 2026-11-04).
     ───────────────────────────────────────────────────────────── -->
     <section class="px-6 pb-4">
         <div class="max-w-6xl mx-auto">
@@ -384,7 +399,7 @@
             <p class="text-zinc-400 mb-8 leading-relaxed">
                 ატვირთეთ ბოლო ანალიზის პასუხი და ნახეთ, რას ამოიკითხავს სისტემა.
             </p>
-            <a href="https://app.iam.ge"
+            <a href="https://app.iam.ge/language/ka?back=%2F"
                class="inline-flex items-center gap-2 bg-accent-600 hover:bg-accent-500 text-white font-semibold px-8 py-3.5 rounded-xl text-base transition-colors">
                 შესვლა app.iam.ge-ზე
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
@@ -404,7 +419,7 @@
             <span class="flex items-center gap-5">
                 <!-- The privacy notice; the Google sign-in consent screen links to the same page -->
                 <a href="/privacy" class="hover:text-zinc-300 transition-colors">კონფიდენციალურობა</a>
-                <a href="https://app.iam.ge" class="hover:text-zinc-300 transition-colors">app.iam.ge</a>
+                <a href="https://app.iam.ge/language/ka?back=%2F" class="hover:text-zinc-300 transition-colors">app.iam.ge</a>
             </span>
         </div>
     </footer>
