@@ -1,0 +1,40 @@
+# Checks that the committed stylesheets (site.css, privacy.css) match the pages.
+#
+# Why this exists: the pages no longer compile Tailwind in the browser. Tailwind is built ahead of
+# time by tailwind/build.sh, and it only emits the classes it finds in the HTML. If someone adds
+# a class to a page (say `mt-7`) and forgets to rebuild, the class silently does nothing on the
+# live site. This workflow rebuilds the CSS on every PR and push to main and fails when the result
+# differs from what is committed, so the fix is always "run sh tailwind/build.sh and commit".
+#
+# It does not deploy anything. GitHub Pages still publishes main as it is.
+name: CSS up to date
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Node for npx; build.sh pins the Tailwind version itself, so no package.json is needed.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Rebuild the stylesheets from the pages
+        run: sh tailwind/build.sh
+
+      # Any difference means a page uses classes the committed CSS does not have (or the reverse).
+      - name: Fail if the committed CSS is stale
+        run: |
+          if ! git diff --exit-code -- site.css privacy.css; then
+            echo "::error::site.css or privacy.css is out of date. Run 'sh tailwind/build.sh' and commit the result."
+            exit 1
+          fi

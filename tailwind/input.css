@@ -1,0 +1,9 @@
+/*
+  Source for the two built stylesheets, /site.css and /privacy.css.
+  Only Tailwind's three layers: each page keeps its own small <style> block for the few rules
+  that are not utilities (fonts, the hero grid). Do not edit the built files by hand; run
+  tailwind/build.sh after changing classes in any page.
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

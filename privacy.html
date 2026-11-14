@@ -28,27 +28,9 @@
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f766e'/%3E%3Cpath d='M6 17h5l2.5-6 4 12 2.5-6H26' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 
     <!-- Same Tailwind setup and fonts as index.html, so the two pages look like one site -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        accent: {
-                            300: '#5eead4',
-                            400: '#2dd4bf',
-                            500: '#14b8a6',
-                            600: '#0d9488',
-                            700: '#0f766e',
-                            900: '#134e4a',
-                            950: '#042f2e',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Tailwind, built ahead of time into /privacy.css from tailwind/privacy.config.js (sh tailwind/build.sh).
+         The page does not load Tailwind at runtime: a blocked CDN script used to leave it unstyled. -->
+    <link rel="stylesheet" href="/privacy.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,7 +62,7 @@
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="/" class="flex items-center gap-3">
                 <span class="w-9 h-9 rounded-lg bg-accent-700 flex items-center justify-center">
-                    <svg class="w-5 h-5 text-white" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <svg width="20" height="20" class="w-5 h-5 text-white" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <path d="M6 17h5l2.5-6 4 12 2.5-6H26"/>
                     </svg>
                 </span>
@@ -89,7 +71,7 @@
             <a href="https://app.iam.ge"
                class="inline-flex items-center gap-2 bg-zinc-100 hover:bg-white text-zinc-900 text-sm font-medium px-4 py-2 rounded-lg transition-colors">
                 შესვლა
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                <svg width="16" height="16" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                 </svg>
             </a>
@@ -185,7 +167,7 @@
             <h2 id="ka-cookies">ქუქიები და ბრაუზერის მეხსიერება</h2>
             <p>app.iam.ge მხოლოდ იმ ქუქიებს იყენებს, რომლებიც მის მუშაობას სჭირდება: სესიის ქუქის, რომ შესული დარჩეთ (30 დღე, ყოველი ვიზიტისას ახლდება); დროებით ქუქის შესვლის დროს (10 წუთი); ფორმების დაცვის ქუქის; და ქუქის, რომელიც არჩეულ თემას იმახსოვრებს (1 წელი). ბრაუზერის მეხსიერებაში ვინახავთ თქვენს არჩევანს, მაგალითად რომელი ოჯახის წევრია არჩეული და როგორ ჩანს დოკუმენტების სია. ეს თქვენს ბრაუზერში რჩება.</p>
             <p>app.iam.ge-ზე არ არის ანალიტიკა, რეკლამა ან სხვა კომპანიების სკრიპტები, და შრიფტებიც ჩვენივე სერვერიდან იტვირთება.</p>
-            <p>ეს საიტი (iam.ge) GitHub-ზეა განთავსებული და შრიფტებს Google Fonts-იდან, სტილებს კი cdn.tailwindcss.com-იდან ტვირთავს, ამიტომ ეს სერვისები თქვენს IP მისამართს ხედავენ. iam.ge ქუქიებს არ იყენებს.</p>
+            <p>ეს საიტი (iam.ge) GitHub-ზეა განთავსებული და შრიფტებს Google Fonts-იდან ტვირთავს, ამიტომ ეს სერვისები თქვენს IP მისამართს ხედავენ. iam.ge ქუქიებს არ იყენებს.</p>
 
             <h2 id="ka-rights">თქვენი უფლებები</h2>
             <p>შეგიძლიათ მოგვთხოვოთ:</p>
@@ -292,7 +274,7 @@
             <h2 id="en-cookies">Cookies and browser storage</h2>
             <p>app.iam.ge uses only the cookies it needs to work: a session cookie that keeps you signed in (30 days, renewed on each visit), a short-lived cookie during sign-in (10 minutes), a cookie that protects forms, and one that remembers your theme (1 year). Your browser's storage keeps your choices, such as which family member is selected and how the document list looks. That stays in your browser.</p>
             <p>app.iam.ge has no analytics, advertising or third-party scripts, and serves its own fonts.</p>
-            <p>This site (iam.ge) is hosted on GitHub and loads fonts from Google Fonts and styles from cdn.tailwindcss.com, so those services see your IP address. iam.ge sets no cookies.</p>
+            <p>This site (iam.ge) is hosted on GitHub and loads fonts from Google Fonts, so those services see your IP address. iam.ge sets no cookies.</p>
 
             <h2 id="en-rights">Your rights</h2>
             <p>You can ask us:</p>
